@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="index.css"/>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
+
+    <meta name="viewport" content="width=device-width">
+    <title>
+        Ecomerce Website
+    </title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, grey,rgb(23, 225, 240),rgb(23, 225, 240), grey);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        img {
+            height: 270px;
+            width: fit-content;
+        }
+
+        .card-text {
+            color: green;
+            box-shadow: 4px 4px 2px gray;
+            border-radius: 10px;
+        }
+
+        .card {
+            box-shadow: 5px 5px rgba(139, 138, 138, 0.4);
+            border-radius: 10px;
+        }
+
+        h5 {
+            box-shadow: 4px 4px 2px gray;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px grey;
+            margin-bottom: 2%;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        #sup{
+            background-color: red;
+            color: white;
+            padding: 2px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="navbar-brand bg-warning p-3">SHOP NOW</div>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-light" href="#">About Us</a>
+            <a class="nav-item nav-link text-light" href="#">Contact Us</a>
+          </div>
+            <input class="form-control mr-sm-2 w-50 ml-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        <i class="bi bi-cart2">
+            <a href="cartDetails.html" target="blank" class="text-warning">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+          </svg>Cart </a><span id="sup">0</span>
+        
+    </i>
+        
+        
+      </nav>
+    <div class="container-fluid border border-secondary  p-5">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-4" src="images/tshirt.jpeg" alt="TShirt" id="img1"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name1">TShirt</h5>
+                            <div>
+                                <h5 class="card-text">₹<span id="price1">999</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn1" onclick="add('name1','price1','btn1','img1')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-5" src="images/showred.jpeg" alt="Shoe" id="img2"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name2">Shoe</h5>
+                            <div>
+                                <h5 class="card-text">₹<span id="price2">1599</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn2" onclick="add('name2','price2','btn2','img2')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-4" src="images/earphones.jpeg" alt="Ear Phones" id="img3"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name3">Ear Phones</h5>
+                            <div>
+                                <h5 class="card-text">₹<span id="price3">1999</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn3" onclick="add('name3','price3','btn3','img3')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-4" src="images/watch1.jpg" alt="Watch" id="img4"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name4">Watch</h5>
+                            <div>
+                                <h5 class="card-text">₹<span id="price4">4999</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn4" onclick="add('name4','price4','btn4','img4')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top" src="images/whiteshirt.jpg" alt="Shirt" id="img5"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name5">Shirt</h5>
+                            <div class="inline">
+                                <h5 class="card-text">₹<span id="price5">1199</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn5" onclick="add('name5','price5','btn5','img5')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-5" src="images/bags.jpg" alt="Bag" id="img6"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name6">Bag</h5>
+                            <div class="inline">
+                                <h5 class="card-text">₹<span id="price6">3599</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn6" onclick="add('name6','price6','btn6','img6')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-4" src="images/phone.jpg" alt="Phone" id="img7"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name7">Phone</h5>
+                            <div class="inline">
+                                <h5 class="card-text">₹<span id="price7">54999</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn7" onclick="add('name7','price7','btn7','img7')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="card m-2">
+                    <img class="card-img-top p-4" src="images/wallet.jpg" alt="Wallet" id="img8"/>
+                    <div class="card-body text-center">
+                        <article class="car-img-top">
+                            <h5 class="card-title" id="name8">Wallet</h5>
+                            <div class="inline">
+                                <h5 class="card-text">₹<span id="price8">549</span>/-</h5>
+                            </div>
+                            <button class="btn btn-primary mt-3" id="btn8" onclick="add('name8','price8','btn8','img8')">Add to Cart</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("load",showCart());
+            function showCart(){
+                let cartCount = document.querySelector("#sup");
+                let count = JSON.parse(localStorage.getItem("Cart"));
+                if(count){
+                cartCount.textContent = count.length;
+                }
+                else{
+                    cartCount.textContent = 0; 
+                }
+            }
+        let productArr = [];
+        function add(name, price, btn,image) {
+            let pname = document.getElementById(name).textContent;
+            let pprice = document.getElementById(price).textContent;
+            let pbtn = document.getElementById(btn);
+            let pimg = document.getElementById(image).src;
+            if (pbtn.textContent === "Add to Cart") {
+                pbtn.textContent = "Remove from Cart";
+                pbtn.style.backgroundColor = "orange";
+                pbtn.style.border = "orange";
+                let productOb = {
+                    Name: pname,
+                    Price: pprice,
+                    ImgPath: pimg
+                }
+                productArr.push(productOb);
+                localStorage.setItem("Cart", JSON.stringify(productArr));
+            }
+            else {
+                let proArr = JSON.parse(localStorage.getItem("Cart"));
+                productArr = productArr.filter(function(val){
+                    if(val.Name === pname){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                });
+                pbtn.textContent = "Add to Cart";
+                pbtn.style.backgroundColor = "blue";
+                localStorage.clear();
+                localStorage.setItem("Cart",JSON.stringify(productArr));
+            }
+            showCart();
+        }
+
+    </script>
+
+</body>
+
+
+</html>

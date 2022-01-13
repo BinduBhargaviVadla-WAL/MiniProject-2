@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        Cart Details
+    </title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, grey,rgb(23, 225, 240),rgb(23, 225, 240), grey);
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        img {
+            height: 200px;
+            width: 200px;
+        }
+
+        .card-text {
+            color: green;
+            box-shadow: 4px 4px 2px gray;
+            border-radius: 10px;
+        }
+
+        .card {
+            box-shadow: 5px 5px rgba(139, 138, 138, 0.4);
+            border-radius: 5px;
+        }
+
+        h5 {
+            box-shadow: 4px 4px 2px gray;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-shadow: 2px 2px grey;
+            margin-bottom: 2%;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        .div{
+            width: 700px;
+            background-color: white;
+            margin-top: 50px;
+        }
+       /* table{
+            background-color: black;
+        }*/
+        td,th{
+            
+            text-align: center;
+            vertical-align: middle;
+        }
+        #sup{
+            background-color: red;
+            color: white;
+            padding: 2px;
+            border-radius: 50%;
+        }
+        .total{
+            border-top: 2px solid black;
+            font-weight: bold;
+            color: green;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="navbar-brand bg-warning p-3">SHOP NOW</div>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-light" href="#">About Us</a>
+            <a class="nav-item nav-link text-light" href="#">Contact Us</a>
+          </div>
+            <input class="form-control mr-sm-2 w-50 ml-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </div>
+        <i class="bi bi-cart2">
+            <a href="cartDetails.html" target="blank" class="text-warning">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+            <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+          </svg>Cart </a><span id="sup">0</span>
+        
+    </i>
+        
+      </nav>
+      <h1 class="text-center">Your Cart</h1>
+    <div class="div border border-warning m-auto">
+        <table class="table">
+            <tr>
+                <th class="col-1">Image</th>
+                <th class="col-1">Product Name</th>
+                <th class="col-1">Price</th>
+            </tr>
+            <tbody id="data">
+               
+            </tbody>
+            <tr class="total">
+                <td></td>
+                <td>Total</td>
+                <td id="total"></td>
+            </tr>
+        </table>
+        <h4 class="text-center" id="nobook"></h4>
+    </div>
+    
+    <script>
+        window.addEventListener("load",showCart());
+            function showCart(){
+                let cartCount = document.querySelector("#sup");
+                let count = JSON.parse(localStorage.getItem("Cart"));
+                cartCount.textContent = count.length;
+                if(localStorage.getItem("Cart")){
+                    let proArr= JSON.parse(localStorage.getItem("Cart"));
+                    let s="";
+                    let sum=0;
+                    for(let i=0;i<proArr.length;i++){
+                            s+=`<tr><td><img src = "${proArr[i].ImgPath}"></img></td>
+                                <td>${proArr[i].Name}</td>
+                                <td>₹${proArr[i].Price}</td>`;
+                            sum+=parseInt(proArr[i].Price);
+                    }
+                    document.querySelector("#data").innerHTML=s;
+                    document.querySelector("#total").innerHTML = `₹${sum}`;
+                }
+                else{
+                    document.querySelector("#nobook").textContent="NO BOOKS AVAILABLE";
+        }
+            }
+        let productArr = [];
+        function add(name, price, btn) {
+            let pname = document.getElementById(name).textContent;
+            let pprice = document.getElementById(price).textContent;
+            let pbtn = document.getElementById(btn);
+            if (pbtn.textContent === "Add to Cart") {
+                pbtn.textContent = "Remove from Cart";
+                pbtn.style.backgroundColor = "orange";
+                pbtn.style.border = "orange";
+                let productOb = {
+                    Name: pname,
+                    Price: pprice
+                }
+                productArr.push(productOb);
+                localStorage.setItem("Cart", JSON.stringify(productArr));
+            }
+            else {
+                let proArr = JSON.parse(localStorage.getItem("Cart"));
+                productArr = productArr.filter(function(val){
+                    if(val.Name === pname){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                });
+                pbtn.textContent = "Add to Cart";
+                pbtn.style.backgroundColor = "blue";
+                localStorage.clear();
+                localStorage.setItem("Cart",JSON.stringify(productArr));
+            }
+            showCart();
+        }
+
+    </script>
+
+</body>
+
+
+</html>
